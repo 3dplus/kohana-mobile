@@ -1,5 +1,12 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
+/**
+ *
+ * Example of using Mobile class
+ *
+ */
+
+
 class Mobile_Controller extends Kohana_Controller_Template {
 	
 	public $is_mobile = False;

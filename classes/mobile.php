@@ -35,8 +35,7 @@ class Mobile {
 	public function __construct() {
 		$this->is_mobile = False;
 		if(!isset($_SERVER['HTTP_USER_AGENT'])) return;
-		$this->user_agents_test_match = sprintf('/^(?:%s)/', implode('|', $this->user_agents_test_match));
-//		var_dump($this->user_agents_test_match);
+		$this->user_agents_test_match = sprintf('/^(%s)/', implode('|', $this->user_agents_test_match));
 		if(preg_match($this->user_agents_test_match, $_SERVER['HTTP_USER_AGENT']))
 		{
 			$this->is_mobile = True;
@@ -46,7 +45,7 @@ class Mobile {
 		
 		if(!$this->is_mobile)
 		{
-			$this->user_agents_text_search = sprintf('/^(?:%s)/', implode('|', $this->user_agents_text_search));
+			$this->user_agents_text_search = sprintf('/^(%s)/', implode('|', $this->user_agents_text_search));
 			if(preg_match($this->user_agents_text_search, $_SERVER['HTTP_USER_AGENT']))
 			{
 				$this->is_mobile = True;
